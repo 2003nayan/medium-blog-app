@@ -141,7 +141,15 @@ export default function RootLayout({
                 Created for OneStop ESG Assignment
               </p>
               <p className="text-stone-500 dark:text-stone-500 text-xs">
-                Developed by Nayan Katiyara
+                Developed by{" "}
+                <a
+                  href="https://nayankatiyara.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-2"
+                >
+                  Nayan Katiyara
+                </a>
               </p>
             </div>
           </div>

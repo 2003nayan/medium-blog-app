@@ -2,16 +2,21 @@
 
 import { useEffect, useState } from "react";
 
-function getInitialTheme() {
-  if (typeof window === "undefined") return false;
-  return document.documentElement.classList.contains("dark");
-}
-
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(getInitialTheme);
+  // Start with false to match server-side rendering
+  const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Detect initial theme after component mounts
+  useEffect(() => {
+    setMounted(true);
+    setIsDark(document.documentElement.classList.contains("dark"));
+  }, []);
 
   // Sync theme changes with DOM
   useEffect(() => {
+    if (!mounted) return;
+
     const root = document.documentElement;
     if (isDark) {
       root.classList.add("dark");
@@ -20,11 +25,36 @@ export default function ThemeToggle() {
       root.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
-  }, [isDark]);
+  }, [isDark, mounted]);
 
   const toggleTheme = () => {
     setIsDark((prev) => !prev);
   };
+
+  // Prevent hydration mismatch by rendering placeholder until mounted
+  if (!mounted) {
+    return (
+      <button
+        className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 transition-all cursor-pointer"
+        aria-label="Toggle theme"
+        disabled
+      >
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+          />
+        </svg>
+      </button>
+    );
+  }
 
   return (
     <button
