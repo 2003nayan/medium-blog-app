@@ -11,9 +11,9 @@ A modern, minimalist blog application built with Next.js 16, Prisma ORM, and Mon
 
 ## 📋 Assignment Context
 
-**Created for**: OneStop ESG Internship Assignment
+**Created for**: OneStop ESG Assignment
 **Option Chosen**: Option 1 - Simple Blog App with Next.js & Prisma
-**Time Spent**: ~5 hours
+**Time Spent**: 3-4 hours
 **Completed**: November 2025
 
 This project demonstrates clean architecture, modern React patterns, and production-ready code quality. See [SUBMISSION.md](SUBMISSION.md) for detailed reflection and design decisions.
@@ -23,7 +23,7 @@ This project demonstrates clean architecture, modern React patterns, and product
 - 🚀 **Next.js 16 App Router** - Modern routing with server components
 - 💾 **Prisma ORM** - Type-safe database access
 - 🗄️ **MongoDB** - Flexible NoSQL database
-- 🎨 **Tailwind CSS** - Utility-first styling
+- 🎨 **Tailwind CSS 4** - Utility-first styling with latest features
 - ⚡ **Server Components** - Optimal performance with server-side rendering
 - 🎯 **Client Components** - Interactive UI where needed
 - 📱 **Responsive Design** - Mobile-first approach
@@ -31,23 +31,30 @@ This project demonstrates clean architecture, modern React patterns, and product
 - ⏱️ **Reading Time** - Automatic calculation per post
 - 🔄 **Loading States** - Skeleton screens for better UX
 - ❌ **Error Handling** - Graceful error and 404 pages
-- 🌓 **Dark Mode** - System preference detection with localStorage persistence
+- 🌓 **Dark Mode** - System preference detection with localStorage persistence (hydration-safe)
 - 🎯 **SEO Optimized** - Dynamic metadata generation for each post
-- 📊 **Realistic Content** - Engaging tech articles instead of Lorem ipsum
+- 📊 **Realistic Content** - Engaging tech articles about modern web development
+- 📖 **Reading Progress** - Visual progress bar for blog posts
+- 🔗 **Social Sharing** - Share posts on Twitter, LinkedIn, or copy link
+- 👤 **Portfolio Link** - Clickable footer attribution
 
 ## 🏗️ Architecture
 
 ### Server Components
 - `app/page.tsx` - Homepage with posts list
-- `app/posts/[id]/page.tsx` - Individual post view
+- `app/posts/[id]/page.tsx` - Individual post view with related posts
+- `app/layout.tsx` - Root layout with navigation and footer
 
 ### Client Components
 - `components/PostCard.tsx` - Interactive post preview cards
+- `components/ThemeToggle.tsx` - Dark/light mode switcher with hydration safety
+- `components/ReadingProgress.tsx` - Scroll-based progress indicator
+- `components/ShareButtons.tsx` - Social media share functionality
 
 ### Database
 - Prisma schema with Post model
 - MongoDB for data persistence
-- Seeded with 5 sample blog posts
+- Seeded with 6 engaging tech blog posts
 
 ## 🚀 Getting Started
 
@@ -103,19 +110,25 @@ blog-app/
 │   │       ├── page.tsx         # Post detail (Server Component)
 │   │       ├── loading.tsx      # Loading skeleton
 │   │       └── error.tsx        # Error boundary
-│   ├── layout.tsx               # Root layout
+│   ├── layout.tsx               # Root layout with header/footer
 │   ├── not-found.tsx            # Custom 404 page
 │   └── globals.css              # Global styles
 ├── components/
-│   └── PostCard.tsx             # Post preview card (Client Component)
+│   ├── PostCard.tsx             # Post preview card (Client Component)
+│   ├── ThemeToggle.tsx          # Dark mode toggle (Client Component)
+│   ├── ReadingProgress.tsx      # Reading progress bar (Client Component)
+│   ├── ShareButtons.tsx         # Social sharing buttons (Client Component)
+│   └── PostCardSkeleton.tsx     # Loading state skeleton
 ├── lib/
-│   └── prisma.ts                # Prisma client singleton
+│   ├── prisma.ts                # Prisma client singleton
+│   └── utils.ts                 # Utility functions (reading time, etc.)
 ├── prisma/
 │   ├── schema.prisma            # Database schema
-│   └── seed.ts                  # Seed data
+│   └── seed.ts                  # Seed data with engaging content
 ├── .env                         # Environment variables (not committed)
 ├── .env.example                 # Example environment variables
-└── README.md                    # This file
+├── README.md                    # This file
+└── SUBMISSION.md                # Detailed submission notes
 ```
 
 ## 🎨 Design Decisions
@@ -170,7 +183,7 @@ npx prisma db seed       # Run seed script
 
 ## 🎯 Assignment Requirements
 
-This project fulfills all requirements for the OneStop ESG internship assignment:
+This project fulfills all requirements for the OneStop ESG assignment:
 
 ✅ Next.js with App Router  
 ✅ Pages for listing and viewing posts  
@@ -184,11 +197,12 @@ This project fulfills all requirements for the OneStop ESG internship assignment
 
 - [ ] Add markdown support for post content
 - [ ] Implement search functionality
-- [ ] Add categories/tags
+- [ ] Add categories/tags system
 - [ ] Create admin interface for post management
 - [ ] Add comments system
-- [ ] Implement pagination
-- [ ] Add dark mode
+- [ ] Implement pagination for large post lists
+- [ ] Add user authentication and profiles
+- [ ] Enable draft/publish workflow
 
 ## 📄 License
 

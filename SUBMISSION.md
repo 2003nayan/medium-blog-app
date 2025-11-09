@@ -1,4 +1,4 @@
-# OneStop ESG Internship Assignment - Submission
+# OneStop ESG Assignment - Submission
 
 **Applicant**: Nayan Katiyara
 
@@ -8,7 +8,7 @@
 
 **Submission Date**: November 9, 2025
 
-**Time Spent**: ~5 hours
+**Time Spent**: 3-4 hours
 
 ---
 
@@ -180,7 +180,7 @@ Given additional time, I would add:
 6. **Performance Monitoring** (1 hour)
    Web Vitals tracking, analytics integration
 
-However, I consciously avoided scope creep to stay within the 2-4 hour guideline and focus on code quality over feature quantity.
+However, I consciously avoided scope creep to stay within the 3-4 hour guideline and focus on code quality over feature quantity.
 
 ---
 
