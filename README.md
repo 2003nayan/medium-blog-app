@@ -1,4 +1,4 @@
-# 📝 Simple Blog App
+# 📝 Insightful App
 
 A modern, minimalist blog application built with Next.js 16, Prisma ORM, and MongoDB. This project demonstrates clean architecture, server/client component patterns, and professional UI/UX design.
 
@@ -196,8 +196,7 @@ This project was created as part of a technical assessment for OneStop ESG.
 
 ## 👨‍💻 Author
 
-**Shiva Nayan**  
-Software Engineer | AI4M Technology
+**Nayan Katiyara**  
 
 ---
 

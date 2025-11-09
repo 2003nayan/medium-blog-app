@@ -1,9 +1,13 @@
 # OneStop ESG Internship Assignment - Submission
 
-**Applicant**: Shiva Nayan
+**Applicant**: Nayan Katiyara
+
 **Position**: Software Engineering Intern
+
 **Option Chosen**: Option 1 - Simple Blog App
+
 **Submission Date**: November 9, 2025
+
 **Time Spent**: ~5 hours
 
 ---
@@ -264,4 +268,7 @@ Thank you for the opportunity to work on this assignment. I look forward to disc
 ---
 
 **Repository**: https://github.com/2003nayan/medium-blog-app
-**Contact**: 2003nayan@gmail.com
+
+**Contact**: nayankatiyara03@gmail.com
+
+**Portfolio**: https://nayankatiyara.in/

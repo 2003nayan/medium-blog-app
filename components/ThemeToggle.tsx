@@ -2,48 +2,38 @@
 
 import { useEffect, useState } from "react";
 
-// Initialize theme - runs once on component mount
-function initializeTheme(): "light" | "dark" {
-  if (typeof window === "undefined") return "light";
-
-  const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-  if (savedTheme) return savedTheme;
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+function getInitialTheme() {
+  if (typeof window === "undefined") return false;
+  return document.documentElement.classList.contains("dark");
 }
 
 export default function ThemeToggle() {
-  // Initialize theme from localStorage/system preference
-  const [theme, setTheme] = useState<"light" | "dark">(initializeTheme);
+  const [isDark, setIsDark] = useState(getInitialTheme);
 
-  // Sync theme changes with DOM (external system)
+  // Sync theme changes with DOM
   useEffect(() => {
     const root = document.documentElement;
-
-    if (theme === "dark") {
+    if (isDark) {
       root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
-
-    // Persist to localStorage (external system)
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  }, [isDark]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    setIsDark((prev) => !prev);
   };
 
   return (
     <button
       onClick={toggleTheme}
       className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-      title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      title={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
-      {theme === "light" ? (
+      {!isDark ? (
         // Moon icon for dark mode
         <svg
           className="w-5 h-5"
